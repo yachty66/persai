@@ -33,11 +33,13 @@ uses gpt-4 and the prompting techniques provided in https://arxiv.org/pdf/2307.0
     - [x] create structure for python package
     - [ ] file for appropriate dealing with big five data prediction
         - [x] make a plan based on how the paper does predictions, i.e. how i can do this but with more data and test if this is really valid 
-        - [ ] get all raw tweets
+        - [x] get all raw tweets
+        - [x] generate a appropriate file for dealing with the x data
+        - [x] figure out which model to use 
         - [ ] get last number of tweets so that prompt still fits in token window
         - [ ] create a sample prompt with Zero-Shot Level-Oriented CoT prompting
         - [ ] what are the best possible prompts i can extract from my the kind of files i have access to like whatsapp, chatgpt
-            - its just a question of how the ideal prompt looks like and than i am asking myself from where i get this prompt from
+        - its just a question of how the ideal prompt looks like and than i am asking myself from where i get this prompt from
             - whats the best place to look for? i am absolutely not sure 
 
 - [x] find out if its possible to upload chatgpt data in GPT interface

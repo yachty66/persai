@@ -14,7 +14,7 @@ q:
 - what is one example i can take here as text to think about
     - probably i should just take some kind of test pieces from my chat
 
-Analyze the person-generated text from [Specified Level], determine the person’s levels of Openness, Conscientiousness Extraversion, Agreeableness, and Neuroticism. Only return Low or High.
+Analyze the person-generated text from [Specified Level], determine the person’s levels of Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism. Only return Low or High.
 
 Text: """
 ---

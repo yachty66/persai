@@ -68,7 +68,6 @@ def load_json_objects(filename):
 
 valid_json_objects = load_json_objects('tweets.js')
 
-
 def filter_entities(json_objects):
     return [obj for obj in json_objects if all(not obj['tweet']['entities'][key] for key in obj['tweet']['entities'])]
 
