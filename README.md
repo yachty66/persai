@@ -1,69 +1,58 @@
-# persai
+# Persai
 
-## usage
+![Persai Logo](logo.png)
 
-```python
-from persai import big_five
+## Introduction 🔎
+Persai is a Python package designed to analyze Twitter (X) posts and provide insights into the Big Five personality traits (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism). This tool leverages data from your Twitter archive to offer a unique perspective on your social media presence. 🐦
 
-data = "path to file with chatgpt data"
+![Diagram](diagram.png)
 
-"""
-will return dict like:
+[Visit our website for more information and documentation](https://www.persai.org/)
 
-big_five_traits = {
-    "Openness": 70,          # Sample value indicating a relatively high level of openness
-    "Conscientiousness": 55, # Sample value indicating a moderate level of conscientiousness
-    "Extraversion": 40,      # Sample value indicating a slightly lower level of extraversion
-    "Agreeableness": 65,     # Sample value indicating a fairly high level of agreeableness
-    "Neuroticism": 30        # Sample value indicating a lower level of neuroticism
-}
-"""
+## Installation 🛠️
+Install Persai easily using pip:
 
-big_five(data)
+```bash
+pip install persai
 ```
 
-## notes
+## How to Use 💡
+Follow these steps to analyze your Twitter (X) data using Persai:
 
-uses gpt-4 and the prompting techniques provided in https://arxiv.org/pdf/2307.03952.pdf extended by a bit to predict big five values of an person based on chatgpt data. 
+1. **Export Your Twitter Data**:
+   - Follow Twitter's guidelines to [download your Twitter (X) archive](https://help.twitter.com/en/managing-your-account/how-to-download-your-twitter-archive).
 
-- [x] watch a video on how to build a GPT 
-- [x] check if you get chatgpt data instantly
-- [ ] python package
-    - [x] add to readme how pypi should work, i.e. how a user would use the package 
-    - [x] create structure for python package
-    - [ ] file for appropriate dealing with big five data prediction
-        - [x] make a plan based on how the paper does predictions, i.e. how i can do this but with more data and test if this is really valid 
-        - [x] get all raw tweets
-        - [x] generate a appropriate file for dealing with the x data
-        - [x] figure out which model to use 
-        - [x] get last number of tweets so that prompt still fits in token window
-        - [x] create a sample prompt with Zero-Shot Level-Oriented CoT prompting
-        - [x] write a extractor method for extracting the big five levels from the results
-        - [x] make sure prompt is the same like in the paper
-        - [x] adjust tweet data extractor in a way to deal with the natural data format
-        - [ ] test package locally 
-        - [ ] cleanup package 
-        - [ ] publish package make it public
-        - [ ] test the package 
-        - [ ] share in public
- 
+2. **Prepare Your Data**:
+   - Locate the `twitter.js` file in your downloaded Twitter (X) data.
+   - Save this file in the directory where you plan to run the Persai package.
 
-- [x] find out if its possible to upload chatgpt data in GPT interface
-    - [ ] make tool for trimming file in a way that it can be uploaded to chatgpt
+3. **Run Persai**:
+   - Use the following Python code to perform the Big Five analysis:
 
-- [ ] find out how i can extend the method from the paper in a way to deal with all the chatgpt data to make personality prediction not only based on one sentence
+   ```python
+   from persai import big_five
 
-- [ ] generate an endpoint for the package
-- [ ] GPT
-    - gpt should work in a way that user additional to inputting his data is also able to have a conversation about his results and the meaning of personality tests 
+   data = "twitter.js"
+   result = big_five(data)
+   print(result)
+   ```
 
-i also could just do a python package which does this things like taking data as input and than returning the big five values. later when building the GPT i can use this package in the backend. basically i would go ahead and build an api which i than can use in my GPT. 
+## Sample Output 📈
 
-data --> persai pypi --> returns scores
+After running the script, you'll receive a dictionary with the analysis results. It will look something like this:
 
-in a later stage i can use this package for my GPT in the backend. 
+```json
+{
+  "openness": "high",
+  "conscientiousness": "low",
+  "extraversion": "low",
+  "agreeableness": "low",
+  "neuroticism": "low"
+}
+```
 
+These results provide a snapshot of the personality traits expressed in your Twitter (X)posts.
 
+---
 
-
-
+Feel free to contribute to the project or suggest improvements! 🌟

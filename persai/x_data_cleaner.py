@@ -2,7 +2,7 @@ import json
 
 def main_x_data_cleaner(path_to_data):
     """
-    main which returns 20 posts in prompt format
+    The main function returns 20 posts in a formatted prompt.
     """
     print("Starting main_x_data_cleaner function.")
     valid_json_objects = load_json_objects(path_to_data)
@@ -19,7 +19,7 @@ def main_x_data_cleaner(path_to_data):
 # load all json objects which are not broken into a list
 def load_json_objects(filename):
     """
-    takes the path to the js file containing the twitter data and returns a list of json objects
+    Takes the path to the JavaScript file containing the Twitter data and returns a list of JSON objects.
     """
     valid_objects = []
     decoder = json.JSONDecoder()
@@ -39,8 +39,11 @@ def load_json_objects(filename):
     return valid_objects
 
 
-#get all posts with no entities
+
 def filter_entities(json_objects):
+    """
+    Get all posts with no entities, i.e. only posts that are purely from users.
+    """
     return [obj for obj in json_objects if all(not obj['tweet']['entities'][key] for key in obj['tweet']['entities'])]
 
 def get_full_text_objects(filtered_json_objects):
@@ -55,12 +58,9 @@ def get_full_text_objects(filtered_json_objects):
 
 def generate_full_prompt(full_text_objects):
     """
-    generates full prompt with which request can be send than to openai
+    Generates a full prompt with which a request can be sent to OpenAI.
     """
     big_string = ""
     for i in range(20):
         big_string += "---\n" + full_text_objects[i] + "\n---\n"
     return big_string
-
-
-main_x_data_cleaner("tweets.js")

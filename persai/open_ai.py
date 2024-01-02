@@ -1,21 +1,18 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
-load_dotenv()  # take environment variables from .env.
+load_dotenv()  
 
 client = OpenAI(api_key = os.getenv('OPENAI_API_KEY'))
 
 def main_openai(messages, model="gpt-4", temperature=0.0):
     """
-    executes requests to openai
+    Executes requests to OpenAI.
     """
     completion = client.chat.completions.create(
-    model=model,
-    messages=messages
-    # messages=[
-    #     {"role": "system", "content": "You are a poetic assistant, skilled in explaining complex programming concepts with creative flair."},
-    #     {"role": "user", "content": "Compose a poem that explains the concept of recursion in programming."}
-    # ]
+        model=model,
+        messages=messages,
+        temperature=temperature
     )
     return completion.choices[0].message.content
 

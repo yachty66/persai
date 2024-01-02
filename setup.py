@@ -8,7 +8,7 @@ setup(
     version='0.0.1',
     packages=find_packages(),
     install_requires=required,
-    description="Big Five Personality Analysis based on X posts.",
+    description="Big Five Personality Analysis based on Twitter (X) posts.",
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     author='Max Hager',

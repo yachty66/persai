@@ -1,14 +1,7 @@
-"""
-1. define prompt
-2. call data cleaner file and get returned new prompt
-3. call openai model 
-4. do response extracting step if necessary and return dict in right format
-"""
 import logging
 from . import x_data_cleaner
 from . import open_ai
 
-# Set up logging
 logging.basicConfig(level=logging.INFO)
 
 def main_big_five(data_path):
@@ -39,7 +32,7 @@ def get_prompt(text):
 
 def get_messages(prompt):
     """
-    creates the messages which is than used for the request to openai 
+    Creates the messages that are then used for the request to OpenAI.
     """
     messages=[
         {"role": "system", "content": "You are a psychologist who is given some tweets, and based on those tweets, you make a Big Five personality analysis."},
@@ -49,21 +42,21 @@ def get_messages(prompt):
 
 def get_prompt_content(data_path):
     """
-    returns content which can be inserted into prompt
+    Returns content that can be inserted into the prompt.
     """
     get_prompt_content = x_data_cleaner.main_x_data_cleaner(data_path)
     return get_prompt_content
 
 def get_result(prompt):
     """
-    sends request to openai and gets the result of personality analysis
+    Sends a request to OpenAI and receives the result of the personality analysis.
     """
     result = open_ai.main_openai(prompt)
     return result
 
 def extract_result(result):
     """
-    extracts result and returns dictionary
+    The function extracts the result and returns a dictionary.
     """
     prompt ="""You are receiving a text as input that contains a personality analysis of an individual. The analysis is based on the Big Five personality traits, which include openness, conscientiousness, extraversion, agreeableness, and neuroticism. Please extract the analysis results in the following format: {"openness": "low", "conscientiousness": "high", "extraversion": "low", "agreeableness": "high", "neuroticism": "low"}."""
     messages = [{"role": "user", "content": prompt}, {"role": "user", "content": result}]
