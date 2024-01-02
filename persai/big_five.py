@@ -5,7 +5,6 @@ from . import open_ai
 logging.basicConfig(level=logging.INFO)
 
 def main_big_five(data_path, openai_key):
-    print(data_path)
     logging.info("Starting main_big_five function.")
     logging.info("Getting prompt content.")
     prompt_content = get_prompt_content(data_path)
@@ -60,5 +59,5 @@ def extract_result(result, openai_key):
     """
     prompt ="""You are receiving a text as input that contains a personality analysis of an individual. The analysis is based on the Big Five personality traits, which include openness, conscientiousness, extraversion, agreeableness, and neuroticism. Please extract the analysis results in the following format: {"openness": "low", "conscientiousness": "high", "extraversion": "low", "agreeableness": "high", "neuroticism": "low"}."""
     messages = [{"role": "user", "content": prompt}, {"role": "user", "content": result}]
-    result = open_ai.main_openai(messages)
+    result = open_ai.main_openai(messages, openai_key)
     return result

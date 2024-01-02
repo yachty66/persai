@@ -4,19 +4,12 @@ def main_x_data_cleaner(path_to_data):
     """
     The main function returns 20 posts in a formatted prompt.
     """
-    print("Starting main_x_data_cleaner function.")
     valid_json_objects = load_json_objects(path_to_data)
-    print("Loaded valid JSON objects.")
     filtered_json_objects = filter_entities(valid_json_objects)
-    print("Filtered JSON objects.")
     full_text_objects = get_full_text_objects(filtered_json_objects)
-    print("Got full text objects.")
     full_prompt_content = generate_full_prompt(full_text_objects)
-    print("Generated full prompt content.")
-    print("Finished main_x_data_cleaner function.")
     return full_prompt_content
 
-# load all json objects which are not broken into a list
 def load_json_objects(filename):
     """
     Takes the path to the JavaScript file containing the Twitter data and returns a list of JSON objects.
@@ -38,8 +31,6 @@ def load_json_objects(filename):
                 pos = next_pos
     return valid_objects
 
-
-
 def filter_entities(json_objects):
     """
     Get all posts with no entities, i.e. only posts that are purely from users.
@@ -50,7 +41,6 @@ def get_full_text_objects(filtered_json_objects):
     """
     gets the full text of the tweets
     """
-    # Assuming `data` is your dictionary
     full_text = []
     for i in range(len(filtered_json_objects)):
         full_text.append(filtered_json_objects[i]['tweet']['full_text'])
