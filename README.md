@@ -1,11 +1,11 @@
 # Persai
 
-![Persai Logo](logo.png)
+![Persai Logo](images/logo.png)
 
 ## Introduction 🔎
 Persai is a Python package designed to analyze Twitter (X) posts and provide insights into the Big Five personality traits (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism). This tool leverages data from your Twitter archive to offer a unique perspective on your social media presence. 🐦
 
-![Diagram](diagram.png)
+![Diagram](images/diagram.png)
 
 [Visit our website for more information and documentation](https://www.persai.org/)
 
