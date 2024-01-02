@@ -51,7 +51,7 @@ After running the script, you'll receive a dictionary with the analysis results.
 }
 ```
 
-These results provide a snapshot of the personality traits expressed in your Twitter (X)posts.
+These results provide a snapshot of the personality traits expressed in your Twitter (X) posts.
 
 ---
 
