@@ -16,6 +16,28 @@ Install Persai easily using pip:
 pip install persai
 ```
 
+## Configuration ⚙️
+
+### Setting Up Your Environment File
+
+To use Persai, you need to set up an environment file containing your OpenAI key. Follow these steps to create your `.env` file:
+
+1. **Create a .env File**:
+   - In the directory where you plan to run the package, create a new file named `.env`.
+
+2. **Add Your OpenAI Key**:
+   - Open the `.env` file in a text editor.
+   - Add your OpenAI key in the following format:
+     ```
+     OPENAI_KEY=your_openai_key_here
+     ```
+   - Replace `your_openai_key_here` with your actual OpenAI key.
+
+3. **Save the File**:
+   - Save the `.env` file in the same directory as your project.
+
+Persai will automatically use this key to authenticate with OpenAI services when you run the package.
+
 ## How to Use 💡
 Follow these steps to analyze your Twitter (X) data using Persai:
 

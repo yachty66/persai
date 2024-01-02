@@ -1,0 +1,8 @@
+# MANIFEST.in
+global-exclude conversations.json
+global-exclude tweets.js
+global-exclude persai/tweets.js
+global-exclude persai/__pycache__/*
+global-exclude persai.egg-info/*
+global-exclude .env
+global-exclude .gitignore
