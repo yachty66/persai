@@ -5,7 +5,7 @@ with open('requirements.txt') as f:
 
 setup(
     name='persai',
-    version='0.0.1',
+    version='0.0.2',
     packages=find_packages(),
     install_requires=required,
     description="Big Five Personality Analysis based on Twitter (X) posts.",

@@ -16,28 +16,6 @@ Install Persai easily using pip:
 pip install persai
 ```
 
-## Configuration ⚙️
-
-### Setting Up Your Environment File
-
-To use Persai, you need to set up an environment file containing your OpenAI key. Follow these steps to create your `.env` file:
-
-1. **Create a .env File**:
-   - In the directory where you plan to run the package, create a new file named `.env`.
-
-2. **Add Your OpenAI Key**:
-   - Open the `.env` file in a text editor.
-   - Add your OpenAI key in the following format:
-     ```
-     OPENAI_KEY=your_openai_key_here
-     ```
-   - Replace `your_openai_key_here` with your actual OpenAI key.
-
-3. **Save the File**:
-   - Save the `.env` file in the same directory as your project.
-
-Persai will automatically use this key to authenticate with OpenAI services when you run the package.
-
 ## How to Use 💡
 Follow these steps to analyze your Twitter (X) data using Persai:
 
@@ -48,15 +26,19 @@ Follow these steps to analyze your Twitter (X) data using Persai:
    - Locate the `twitter.js` file in your downloaded Twitter (X) data.
    - Save this file in the directory where you plan to run the Persai package.
 
+3. **Set Your OpenAI Key**:
+   - Assign your OpenAI key to a variable. For security reasons, avoid hardcoding the key in your script. Instead, consider using environment variables or other secure methods.
+
 3. **Run Persai**:
    - Use the following Python code to perform the Big Five analysis:
 
    ```python
-   from persai import big_five
+    from persai import big_five
 
-   data = "twitter.js"
-   result = big_five(data)
-   print(result)
+    openai_key = "your_openai_key_here"
+    data = "twitter.js"
+    result = big_five(data, openai_key)
+    print(result)
    ```
 
 ## Sample Output 📈

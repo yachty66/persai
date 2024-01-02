@@ -4,7 +4,7 @@ from . import open_ai
 
 logging.basicConfig(level=logging.INFO)
 
-def main_big_five(data_path):
+def main_big_five(data_path, openai_key):
     print(data_path)
     logging.info("Starting main_big_five function.")
     logging.info("Getting prompt content.")
@@ -14,9 +14,9 @@ def main_big_five(data_path):
     logging.info("Creating messages.")
     messages = get_messages(prompt)
     logging.info("Getting result from LLM.")
-    result = get_result(messages)
+    result = get_result(messages, openai_key)
     logging.info("Extracting result.")
-    extracted_result = extract_result(result)    
+    extracted_result = extract_result(result, openai_key)    
     logging.info("Finished main_big_five function.")
     return extracted_result
 
@@ -47,14 +47,14 @@ def get_prompt_content(data_path):
     get_prompt_content = x_data_cleaner.main_x_data_cleaner(data_path)
     return get_prompt_content
 
-def get_result(prompt):
+def get_result(prompt, openai_key):
     """
     Sends a request to OpenAI and receives the result of the personality analysis.
     """
-    result = open_ai.main_openai(prompt)
+    result = open_ai.main_openai(prompt, openai_key)
     return result
 
-def extract_result(result):
+def extract_result(result, openai_key):
     """
     The function extracts the result and returns a dictionary.
     """

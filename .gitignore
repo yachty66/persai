@@ -4,3 +4,5 @@ persai/tweets.js
 persai/__pycache__
 persai.egg-info
 .env
+build
+dist
