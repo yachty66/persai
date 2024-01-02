@@ -4,23 +4,32 @@
 3. call openai model 
 4. do response extracting step if necessary and return dict in right format
 """
-import x_data_cleaner
-import open_ai
-import json
+import logging
+from . import x_data_cleaner
+from . import open_ai
 
-#todo find out level needed here 
-def big_five(data_path):
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+
+def main_big_five(data_path):
+    print(data_path)
+    logging.info("Starting main_big_five function.")
+    logging.info("Getting prompt content.")
     prompt_content = get_prompt_content(data_path)
+    logging.info("Generating prompt.")
     prompt = get_prompt(prompt_content)
+    logging.info("Creating messages.")
     messages = get_messages(prompt)
+    logging.info("Getting result from LLM.")
     result = get_result(messages)
-    extracted_result = extract_result(result)
-    print(extracted_result)
+    logging.info("Extracting result.")
+    extracted_result = extract_result(result)    
+    logging.info("Finished main_big_five function.")
     return extracted_result
 
 def get_prompt(text):
     return f"""
-    Analyze the person-generated text from [Specified Level], determine the person’s levels of Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism. Only return Low or High.
+    Analyze the person-generated text from sentence level, determine the person’s levels of Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism. Only return Low or High.
 
     Text:
     {text}
@@ -60,6 +69,3 @@ def extract_result(result):
     messages = [{"role": "user", "content": prompt}, {"role": "user", "content": result}]
     result = open_ai.main_openai(messages)
     return result
-    
-
-big_five("tweets.js")

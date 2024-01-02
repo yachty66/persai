@@ -36,11 +36,17 @@ uses gpt-4 and the prompting techniques provided in https://arxiv.org/pdf/2307.0
         - [x] get all raw tweets
         - [x] generate a appropriate file for dealing with the x data
         - [x] figure out which model to use 
-        - [ ] get last number of tweets so that prompt still fits in token window
-        - [ ] create a sample prompt with Zero-Shot Level-Oriented CoT prompting
-        - [ ] what are the best possible prompts i can extract from my the kind of files i have access to like whatsapp, chatgpt
-        - its just a question of how the ideal prompt looks like and than i am asking myself from where i get this prompt from
-            - whats the best place to look for? i am absolutely not sure 
+        - [x] get last number of tweets so that prompt still fits in token window
+        - [x] create a sample prompt with Zero-Shot Level-Oriented CoT prompting
+        - [x] write a extractor method for extracting the big five levels from the results
+        - [x] make sure prompt is the same like in the paper
+        - [x] adjust tweet data extractor in a way to deal with the natural data format
+        - [ ] test package locally 
+        - [ ] cleanup package 
+        - [ ] publish package make it public
+        - [ ] test the package 
+        - [ ] share in public
+ 
 
 - [x] find out if its possible to upload chatgpt data in GPT interface
     - [ ] make tool for trimming file in a way that it can be uploaded to chatgpt
@@ -56,6 +62,8 @@ i also could just do a python package which does this things like taking data as
 data --> persai pypi --> returns scores
 
 in a later stage i can use this package for my GPT in the backend. 
+
+
 
 
 
