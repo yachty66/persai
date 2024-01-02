@@ -1,13 +1,14 @@
 import json
 
-def main_x_data_cleaner(path_to_data, prompt):
+def main_x_data_cleaner(path_to_data):
     """
-    main
+    main which returns 20 posts in prompt format
     """
     valid_json_objects = load_json_objects(path_to_data)
     filtered_json_objects = filter_entities(valid_json_objects)
-    full_prompt = generate_full_prompt(filtered_json_objects, prompt)
-    return filtered_json_objects
+    full_text_objects = get_full_text_objects(filtered_json_objects)
+    full_prompt_content = generate_full_prompt(full_text_objects)
+    return full_prompt_content
 
 # load all json objects which are not broken into a list
 def load_json_objects(filename):
@@ -35,32 +36,21 @@ def load_json_objects(filename):
 def filter_entities(json_objects):
     return [obj for obj in json_objects if all(not obj['tweet']['entities'][key] for key in obj['tweet']['entities'])]
 
-def generate_full_prompt(filtered_json_objects, prompt):
+def get_full_text_objects(filtered_json_objects):
+    """
+    gets the full text of the tweets
+    """
+    # Assuming `data` is your dictionary
+    full_text = []
+    for i in range(len(filtered_json_objects)):
+        full_text.append(filtered_json_objects[i]['tweet']['full_text'])
+    return full_text
+
+def generate_full_prompt(full_text_objects):
     """
     generates full prompt with which request can be send than to openai
-
-    
-
-
-
-
-    Analyze the person-generated text from [Specified Level], determine the person’s levels of Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism. Only return Low or High.
-
-Text:
-{---
-tweet
----
-
----
-tweet
----
-
----
-tweet
----}
-
-Level: Let’s think step by step:
     """
-    full_prompt = prompt
-    for obj in filtered_json_objects:
-        full_prompt += f"""
+    big_string = ""
+    for i in range(20):
+        big_string += "---\n" + full_text_objects[i] + "\n---\n"
+    return big_string
